@@ -115,43 +115,76 @@ let palindromeKontrol = (metin) => {
     }
     return true;
 };
+// let metin = prompt("bir kelime gir")
+// console.log(palindromeKontrol(metin));
+// console.log(palindromeKontrol("kayak"));
+// console.log(palindromeKontrol("abcde"));
 ​
-
 // Örnek-9
 // Kullanıcın girdiği cümledeki kelimelerin ilk harfini büyüten fonksiyonu yazalım.
 // örn => bu cümledeki her kelimenin ilk harfi büyük olacak
 // çıktı => Bu Cümledeki Her Kelimenin Ilk Harfi Büyük Olacak
 
+
+let ilkHarfBuyuk = (cumle) => {
+    let parcalar = cumle.split(" ");
+    // console.log(parcalar);
+    for (let i = 0; i < parcalar.length; i++) {
+        let ilkHarf = parcalar[i].charAt(0).toUpperCase();
+        // console.log(ilkHarf);
+        parcalar[i] = ilkHarf + parcalar[i].substr(1).toLowerCase();
+        // console.log(parcalar);
+    }
+    return parcalar.join(" ");
+};
+​
+// console.log("bu cümledeki her kelimenin ilk harfi bÜYÜk olacak");
+// console.log(ilkHarfBuyuk("bu cümledeki her kelimenin ilk harfi büyük olacak"));
+​
+// let a = "ahmet";
+// console.log(a);
+// console.log(a.substr(4));
+​
 // Örnek-10
 // Girilen sayının faktöriyelini alan recursive fonksiyonu yazalım.
-// let fak = 1;
-// const fakBul = (x) => {
-//   for (let i = 1; i <= x; i++) {
-//     fak = fak * i;
-//   }
-//   return fak;
-// };
 
-let f = (sayi) => {
-  if (sayi === 1) {
-    return 1;
-  } else if (sayi <= 0) {
-    return 0;
-  } else {
-    return sayi * f(sayi - 1);
-  }
-};
-console.log(f(6));
+
+​
+//******* ORNEK-10 *******//
+​
+let f = (number) => {
+    let sonuc = 1;
+    for (let i = 1; i <= number; i++) {
+        sonuc = i * sonuc;
+    }
+    return sonuc;
+}
+​
+// console.log(f(10));
+​
+let faktöriyel = (sayi) => {
+    if (sayi == 1) {
+        return 1;
+    } else if (sayi <= 0) {
+        return 0;
+    } else {
+        return sayi * faktöriyel(sayi - 1)
+    }
+}
+//  5     *   faktöriyel(5-1)
+//                          4          *  faktöriyel(4-1)
+//                                              3          *     faktöriyel (3-1)
+//                                                                     2        *     faktöriyel(2-1)
+//                                                                                          1
+​
+// let sayi = Number(prompt("Bir sayı giriniz"))
+// console.log(faktöriyel(sayi));
 
 // Örnek-11
 // Girilen cümlede hangi harften kaç tane olduğunu bulan fonksiyonu yazalım.
 // örn => bu bir cümledir. kullanıcı b harfini sorgularsa 2 değeri dönecek. u harfini sorgularsa 1 dönecek.
 
-const harfBul=(cumle,harf)=>{
-let sayac=0;
-let cumle2=cumle.toLoverCase();
-for(let i=0; cumle2)
-}
+
 
 
 // Örnek-12
