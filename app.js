@@ -183,7 +183,24 @@ let faktöriyel = (sayi) => {
 // Örnek-11
 // Girilen cümlede hangi harften kaç tane olduğunu bulan fonksiyonu yazalım.
 // örn => bu bir cümledir. kullanıcı b harfini sorgularsa 2 değeri dönecek. u harfini sorgularsa 1 dönecek.
-
+let kacTaneVar = (cümle, harf) => {
+    let sayac = 0;
+    let cümle2 = cümle.toLowerCase();
+    for (let i = 0; i < cümle2.length; i++) {
+        if (cümle2.charAt(i) == harf) {
+            sayac++;
+        }
+    }
+    if (sayac == 0) {
+        return `senin yazdığın harf bu cümlede yok`
+    } else {
+        return `senin girdiğin ${harf} harfinden "${cümle}" cümlesinde ${sayac} tane var`
+    }
+}
+​
+// let string = prompt("bir cümle gir")
+// let char = prompt("aratmak istediğin harfi gir")
+// console.log(kacTaneVar(string, char));
 
 
 
@@ -193,3 +210,47 @@ let faktöriyel = (sayi) => {
 // Örnek-13
 // Cümlede tekrar eden harfleri sayıya çeviren fonksiyon
 // örn => aaabbcccd çıktı => 4a2b3c1d olacak
+let harfSayısı = (cümle) => {
+    cümle = cümle.toLowerCase();
+    cümle = cümle.split("").sort();
+    let sayac = 1;
+    let sonuc = "";
+    let harf = "";
+    for (let i = 0; i < cümle.length; i++) {
+        if (cümle[i] == cümle[i + 1]) {
+            sayac++;
+            harf = cümle[i];
+        } else {
+            sonuc = sonuc + sayac + "" + harf;
+            harf = cümle[i + 1];
+            sayac = 1;
+        }
+​
+    }
+    return sonuc;
+}
+​
+console.log(harfSayısı(prompt("bir cümle giriniz")));
+​
+​
+//!  Diğer çözüm
+let RunLength = (str) => {
+    let myArray = str.split("");
+    let letterCounter = 1;
+    let counterTwo = 1;
+    let my_string = "";
+​
+    for (i in str) {
+        if (str[i] !== str[counterTwo]) {
+            my_string += letterCounter;
+            my_string += str[i];
+            letterCounter = 1;
+        } else {
+            letterCounter++;
+        }
+        counterTwo += 1;
+    }
+    return my_string;
+};
+​
+// console.log(RunLength("aaaabbcccc"));
